@@ -1,0 +1,46 @@
+HEADER    
+TITLE     MDANALYSIS FRAME 0: Created by PDBWriter
+CRYST1    1.000    1.000    1.000  90.00  90.00  90.00 P 1           1
+REMARK     285 UNITARY VALUES FOR THE UNIT CELL AUTOMATICALLY SET
+REMARK     285 BY MDANALYSIS PDBWRITER BECAUSE UNIT CELL INFORMATION
+REMARK     285 WAS MISSING.
+REMARK     285 PROTEIN DATA BANK CONVENTIONS REQUIRE THAT
+REMARK     285 CRYST1 RECORD IS INCLUDED, BUT THE VALUES ON
+REMARK     285 THIS RECORD ARE MEANINGLESS.
+ATOM      1  N   ALA L   1      26.342  37.986  11.181  0.00  0.00      L    N  
+ATOM      2  CA  ALA L   1      26.876  38.236  12.515  0.00  0.00      L    C  
+ATOM      3  C   ALA L   1      26.608  37.083  13.478  0.00  0.00      L    C  
+ATOM      4  O   ALA L   1      25.453  36.790  13.779  0.00  0.00      L    O  
+ATOM      5  CB  ALA L   1      26.281  39.530  13.077  0.00  0.00      L    C  
+ATOM      6  N   SER L   2      27.668  36.431  13.960  0.00  0.00      L    N  
+ATOM      7  CA  SER L   2      27.525  35.314  14.887  0.00  0.00      L    C  
+ATOM      8  C   SER L   2      27.892  35.779  16.292  0.00  0.00      L    C  
+ATOM      9  O   SER L   2      29.015  36.224  16.520  0.00  0.00      L    O  
+ATOM     10  CB  SER L   2      28.393  34.136  14.465  1.00 48.00      L    C  
+ATOM     11  OG  SER L   2      27.975  33.621  13.213  1.00 48.00      L    O  
+ATOM     12  N   TRP L   3      26.951  35.679  17.234  0.00  0.00      L    N  
+ATOM     13  CA  TRP L   3      27.195  36.095  18.611  0.00  0.00      L    C  
+ATOM     14  C   TRP L   3      27.719  34.943  19.462  0.00  0.00      L    C  
+ATOM     15  O   TRP L   3      26.932  34.168  20.000  0.00  0.00      L    O  
+ATOM     16  CB  TRP L   3      25.915  36.663  19.231  1.00 32.00      L    C  
+ATOM     17  CD1 TRP L   3      27.296  37.564  21.191  1.00 32.00      L    C  
+ATOM     18  CD2 TRP L   3      25.088  37.499  21.572  1.00 32.00      L    C  
+ATOM     19  CE2 TRP L   3      25.728  38.009  22.719  1.00 32.00      L    C  
+ATOM     20  CE3 TRP L   3      23.698  37.366  21.576  1.00 32.00      L    C  
+ATOM     21  NE1 TRP L   3      27.079  38.039  22.462  1.00 32.00      L    N  
+ATOM     22  CG  TRP L   3      26.111  37.221  20.607  1.00 32.00      L    C  
+ATOM     23  CH2 TRP L   3      23.662  38.248  23.840  1.00 32.00      L    C  
+ATOM     24  CZ2 TRP L   3      25.025  38.388  23.862  1.00 32.00      L    C  
+ATOM     25  CZ3 TRP L   3      23.000  37.740  22.709  1.00 32.00      L    C  
+ATOM     26  N   SER L   4      29.044  34.827  19.585  0.00  0.00      L    N  
+ATOM     27  CA  SER L   4      29.651  33.762  20.376  0.00  0.00      L    C  
+ATOM     28  C   SER L   4      30.779  34.393  21.186  0.00  0.00      L    C  
+ATOM     29  O   SER L   4      31.939  34.023  21.017  0.00  0.00      L    O  
+ATOM     30  CB  SER L   4      30.162  32.634  19.502  1.00 48.00      L    C  
+ATOM     31  OG  SER L   4      30.768  31.622  20.287  1.00 48.00      L    O  
+ATOM     32  N   ALA L   5      30.445  35.343  22.063  0.00  0.00      L    N  
+ATOM     33  CA  ALA L   5      31.445  36.011  22.888  0.00  0.00      L    C  
+ATOM     34  C   ALA L   5      32.458  36.781  22.047  0.00  0.00      L    C  
+ATOM     35  O   ALA L   5      33.560  36.291  21.810  0.00  0.00      L    O  
+ATOM     36  CB  ALA L   5      32.165  34.988  23.772  0.00  0.00      L    C  
+END
