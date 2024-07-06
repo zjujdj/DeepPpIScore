@@ -38,7 +38,15 @@ conda env create --prefix=/opt/conda_env/DeepPpIScore -f ./env/DeepPpIScore.yaml
 conda activate /opt/conda_env/DeepPpIScore
 ```
 
-- **step 3: Inference Example**
+- **step 3: Downloading ESM2 CheckPoint**
+Downloading [esm2_t33_650M_UR50D.pt](https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt),   [esm2_t33_650M_UR50D-contact-regression.pt](https://dl.fbaipublicfiles.com/fair-esm/regression/esm2_t33_650M_UR50D-contact-regression.pt) and put them in the `'./data'` directory
+
+```python
+
+mv esm2_t33_650M_UR50D.pt esm2_t33_650M_UR50D-contact-regression.pt ./data
+```
+
+- **step 4: Inference Example**
 
 ```python
 cd scripts
@@ -48,11 +56,13 @@ python3 -u model_inference_example.py > model_inference_example_graph_gen.log
 python3 -u model_inference_example.py > model_inference_example.log
 ```
 
-- **step 4: Model Retraining Using the Daseset in this Study**
-  Download the prepared [training set](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view) and [validation set](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view), and unzip them in the `'./data'` directory
+- **step 5: Model Re-training Using the Dasesets in this Study**
+Downloading the prepared training structures [pepbdb_graphs_noH_pocket_topk30.zip](https://drive.google.com/file/d/1QNDU1Dj06FBCDUhtLPgRWEJzumukr7Ko/view?usp=drive_link) and [pepbdb_graphs_noH_ligand.zip](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view?usp=drive_link), unzip them in the `'./data'` directory; 
 
 ```python
+cd ./data
+unzip pepbdb_graphs_noH_pocket_topk30.zip 
+unzip pepbdb_graphs_noH_ligand.zip
 cd scripts
 python3 -u train_model.py > train_model.log
-
 ```
