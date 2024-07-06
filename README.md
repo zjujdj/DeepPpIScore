@@ -13,42 +13,42 @@ Protein-peptide interactions (PpIs) play a critical role in major cellular proce
 
 ![Image text](https://github.com/zjujdj/DeepPpIScore/blob/master/figs/fig5.jpg)
 
-# Conda Environment Reproduce
+## Conda Environment Reproduce
 
-## **create environment using yaml file provided in `./env` directory**
+### **create environment using yaml file provided in `./env` directory**
 
 The following commands can be used to reproduce the conda environment:
 
-```python
+```bash
 conda env create --prefix=/opt/conda_env/DeepPpIScore -f ./env/DeepPpIScore.yaml
 ```
 
-# Usage
+## Usage
 
 - **step 1: Clone the Repository**
 
-```python
+```bash
 git clone https://github.com/zjujdj/DeepPpIScore.git
 ```
 
 - **step 2: Construction of Conda Environment**
 
-```python
+```bash
 conda env create --prefix=/opt/conda_env/DeepPpIScore -f ./env/DeepPpIScore.yaml
 conda activate /opt/conda_env/DeepPpIScore
 ```
 
 - **step 3: Downloading ESM2 CheckPoint**
-Downloading [esm2_t33_650M_UR50D.pt](https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt),   [esm2_t33_650M_UR50D-contact-regression.pt](https://dl.fbaipublicfiles.com/fair-esm/regression/esm2_t33_650M_UR50D-contact-regression.pt) and put them in the `'./data'` directory
 
-```python
+Downloading [esm2_t33_650M_UR50D.pt](https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt),   [esm2_t33_650M_UR50D-contact-regression.pt](https://dl.fbaipublicfiles.com/fair-esm/regression/esm2_t33_650M_UR50D-contact-regression.pt) and put them in the `./data` directory
 
+```bash
 mv esm2_t33_650M_UR50D.pt esm2_t33_650M_UR50D-contact-regression.pt ./data
 ```
 
 - **step 4: Inference Example**
 
-```python
+```bash
 cd scripts
 # submitting the following code to cpu node to generate graphs
 python3 -u model_inference_example.py > model_inference_example_graph_gen.log
@@ -57,12 +57,14 @@ python3 -u model_inference_example.py > model_inference_example.log
 ```
 
 - **step 5: Model Re-training Using the Dasesets in this Study**
-Downloading the prepared training structures [pepbdb_graphs_noH_pocket_topk30.zip](https://drive.google.com/file/d/1QNDU1Dj06FBCDUhtLPgRWEJzumukr7Ko/view?usp=drive_link) and [pepbdb_graphs_noH_ligand.zip](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view?usp=drive_link), unzip them in the `'./data'` directory; 
 
-```python
+Downloading the prepared training structures [pepbdb_graphs_noH_pocket_topk30.zip](https://drive.google.com/file/d/1QNDU1Dj06FBCDUhtLPgRWEJzumukr7Ko/view?usp=drive_link) and [pepbdb_graphs_noH_ligand.zip](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view?usp=drive_link), unzip them in the `./data` directory; 
+
+```bash
 cd ./data
 unzip pepbdb_graphs_noH_pocket_topk30.zip 
 unzip pepbdb_graphs_noH_ligand.zip
+
 cd scripts
 python3 -u train_model.py > train_model.log
 ```
