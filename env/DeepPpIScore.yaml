@@ -203,4 +203,4 @@ dependencies:
     - traitlets==5.9.0
     - wandb==0.13.4
     - wcwidth==0.2.6
-prefix: /home/conda_env/DeepPpIScore
+prefix: /opt/conda_env/DeepPpIScore
