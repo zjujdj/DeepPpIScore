@@ -2,6 +2,7 @@
 
 This is the official implementation for the paper titled 'Harnessing Deep Statistical Potential for Biophysical Scoring of Protein-peptide Interactions'.
 
+
 ## Introduction
 
 Protein-peptide interactions (PpIs) play a critical role in major cellular processes. Recently, a number of machine learning (ML)-based methods have been developed to predict PpIs, but most of them rely heavily on sequence data, limiting their ability to capture the generalized molecular interactions in three-dimensional (3D) space, which is crucial for understanding protein-peptide binding mechanisms and advancing peptide therapeutics. Protein-peptide docking approaches provide a feasible way to generate the structures of PpIs, but they often suffer from low-precision scoring functions (SFs). To address this, we developed DeepPpIScore, a novel SF for PpIs that employs unsupervised geometric deep learning coupled with physics-inspired statistical potential. Trained solely on curated experimental structures without binding affinity data or classification labels, DeepPpIScore exhibits broad generalization across multiple tasks. Our comprehensive evaluations in bound and unbound peptide binding mode prediction, binding affinity prediction, and binding pair identification reveal that DeepPpIScore outperforms or matches state-of-the-art baselines, including popular protein-protein SFs, ML-based methods, and AlphaFold-Multimer 2.3 (AF-M 2.3). Notably, DeepPpIScore achieves superior results in peptide binding mode prediction compared to AF-M 2.3. More importantly, DeepPpIScore offers interpretability in terms of hotspot preferences at protein interfaces, physics-informed noncovalent interactions, and protein-peptide binding energies.
@@ -24,21 +25,25 @@ Protein-peptide interactions (PpIs) play a critical role in major cellular proce
 
 ### Create environment using yaml file provided in `./env` directory
 
-The following commands can be used to reproduce the conda environment:
+The following code can be used to reproduce the conda environment:
 ```bash
-conda env create --prefix=/opt/conda_env/DeepPpIScore -f ./env/DeepPpIScore.yaml
+mkdir -p ~/conda_env/DeepPpIScore
+conda env create --prefix=~/conda_env/DeepPpIScore -f ./env/DeepPpIScore.yaml
 ```
 
 ### Create environment using conda-packed `.tar.gz` file
-Downloading conda-packed `.tar.gz` file from google dirve [DeepPpIScore.tar.gz](https://drive.google.com/file/d/1YEX5lwE3zd0gag3s_awReNNDPuNKPowt/view?usp=sharing), and then using the following commands to reproduce the conda environment:
+Downloading conda-packed `.tar.gz` file from google dirve [DeepPpIScore.tar.gz](https://drive.google.com/file/d/1YEX5lwE3zd0gag3s_awReNNDPuNKPowt/view?usp=sharing), and then using the following code to reproduce the conda environment:
 
 ```bash
-tar -xzvf DeepPpIScore.tar.gz -C /opt/conda_env/DeepPpIScore
-conda activate /opt/conda_env/dgl430_py37_gpu
+mkdir -p ~/conda_env/DeepPpIScore
+tar -xzvf DeepPpIScore.tar.gz -C ~/conda_env/DeepPpIScore
+conda activate ~/conda_env/DeepPpIScore
 conda-unpack
 ```
 
 ## Usage
+
+The code was tested sucessfully on the basci environment equipped with `Nvidia Tesla V100 GPU Card`, `Python=3.9.13`, `CUDA=11.2` and `Conda=22.9.0`
 
 ### Step 1: Clone the Repository
 
@@ -49,14 +54,16 @@ git clone https://github.com/zjujdj/DeepPpIScore.git
 ### Step 2: Construction of Conda Environment
 #### Method1
 ```bash
-conda env create --prefix=/opt/conda_env/DeepPpIScore -f ./env/DeepPpIScore.yaml
-conda activate /opt/conda_env/DeepPpIScore
+mkdir -p ~/conda_env/DeepPpIScore
+conda env create --prefix = ~/conda_env/DeepPpIScore --file ./env/DeepPpIScore.yaml
+conda activate ~/conda_env/DeepPpIScore
 ```
 
 #### Method2
 ```bash
-tar -xzvf DeepPpIScore.tar.gz -C /opt/conda_env/DeepPpIScore
-conda activate /opt/conda_env/dgl430_py37_gpu
+mkdir -p ~/conda_env/DeepPpIScore
+tar -xzvf DeepPpIScore.tar.gz -C ~/conda_env/DeepPpIScore
+conda activate ~/conda_env/DeepPpIScore
 conda-unpack
 ```
 
@@ -68,12 +75,12 @@ Downloading [esm2_t33_650M_UR50D.pt](https://dl.fbaipublicfiles.com/fair-esm/mod
 mv esm2_t33_650M_UR50D.pt esm2_t33_650M_UR50D-contact-regression.pt ./data
 ```
 
-### Step 4: Inference Example
+### Step 4: Inference Example Using the Weights Trained in This Study
 
 ```bash
 cd scripts
 # the evaluation configurations can be set in file of model_inference_example.py
-# submitting the following code to cpu node to generate graphs using multiprocessing
+# submitting the following code to cpu node to generate graphs using multiprocessing first
 python3 -u model_inference_example.py > model_inference_example_graph_gen.log
 ```
 The generated graph files for this example were stored in the directory of `./data/temp_graphs_noH`
