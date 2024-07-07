@@ -137,20 +137,20 @@ for epoch in range(args["num_epochs"]):
         print('Inf ERROR')
         break
     # validation and early stop
-    total_mdn_loss, mdn_loss1, mdn_loss2 = run_an_eval_epoch(model, valid_dataloader,dist_threhold1 = args['dist_threhold1'], 
+    total_gm_loss, gm_loss1, gm_loss2 = run_an_eval_epoch(model, valid_dataloader,dist_threhold1 = args['dist_threhold1'], 
                                              dist_threhold2 = args['dist_threhold2'], device=args["device"])
-    early_stop = stopper.step(total_mdn_loss, model)
+    early_stop = stopper.step(total_gm_loss, model)
     end = time.time()
-    print("epoch:%s, b_val:%.3f,time:%.2fS,tl:%.3f,loss1:%.3f,loss2:%.3f" % (epoch + 1, stopper.best_score, end - st, total_mdn_loss, mdn_loss1, mdn_loss2))
+    print("epoch:%s, b_val:%.3f,time:%.2fS,tl:%.3f,loss1:%.3f,loss2:%.3f" % (epoch + 1, stopper.best_score, end - st, total_gm_loss, gm_loss1, gm_loss2))
     if early_stop:
         break
 
 stopper.load_model(model, args["device"])
-total_mdn_loss, mdn_loss1, mdn_loss2 = run_an_eval_epoch(model, train_dataloader, dist_threhold1 = args['dist_threhold1'], 
+total_gm_loss, gm_loss1, gm_loss2 = run_an_eval_epoch(model, train_dataloader, dist_threhold1 = args['dist_threhold1'], 
                                              dist_threhold2 = args['dist_threhold2'],  device=args["device"])
-print("train set: tl:%.3f,loss1:%.3f,loss2:%.3f" % (total_mdn_loss, mdn_loss1, mdn_loss2))
+print("train set: tl:%.3f,loss1:%.3f,loss2:%.3f" % (total_gm_loss, gm_loss1, gm_loss2))
 
-total_mdn_loss, mdn_loss1, mdn_loss2 = run_an_eval_epoch(model, valid_dataloader, dist_threhold1 = args['dist_threhold1'], 
+total_gm_loss, gm_loss1, gm_loss2 = run_an_eval_epoch(model, valid_dataloader, dist_threhold1 = args['dist_threhold1'], 
                                              dist_threhold2 = args['dist_threhold2'],  device=args["device"])		
-print("valid set: tl:%.3f,loss1:%.3f,loss2:%.3f" % (total_mdn_loss, mdn_loss1, mdn_loss2))
+print("valid set: tl:%.3f,loss1:%.3f,loss2:%.3f" % (total_gm_loss, gm_loss1, gm_loss2))
 
