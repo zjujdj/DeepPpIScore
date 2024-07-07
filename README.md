@@ -28,7 +28,7 @@ Protein-peptide interactions (PpIs) play a critical role in major cellular proce
 The following code can be used to reproduce the conda environment:
 ```bash
 mkdir -p ~/conda_env/DeepPpIScore
-conda env create --prefix=~/conda_env/DeepPpIScore -f ./env/DeepPpIScore.yaml
+conda env create --prefix=~/conda_env/DeepPpIScore --file ./env/DeepPpIScore.yaml
 ```
 
 ### Create environment using conda-packed `.tar.gz` file
@@ -75,7 +75,7 @@ Downloading [esm2_t33_650M_UR50D.pt](https://dl.fbaipublicfiles.com/fair-esm/mod
 mv esm2_t33_650M_UR50D.pt esm2_t33_650M_UR50D-contact-regression.pt ./data
 ```
 
-### Step 4: Inference Example Using the Weights Trained in This Study
+### Step 4: Inference Example with the Weights Trained in This Study
 
 ```bash
 cd scripts
@@ -91,7 +91,7 @@ python3 -u model_inference_example.py > model_inference_example.log
 ```
 The prediction result was listed in directory of `./model_inference/DeepPpIScore/8.0/DeepPpIScore_8.0.csv` . For this csv file, four kinds of score were provided, namely 'cb-cb score', 'cb-cb norm score', 'min-min score' and 'min-min norm score', respectively where the norm score = score / sqrt(contacts). All the analysis in the paper was based on 'min-min score'.
 
-### Step 5: Model Re-training Using the Dasesets Used in This Study
+### Step 5: Model Re-training with the Training Structures Used in This Study
 
 Downloading the prepared training structures from google dirve [pepbdb_graphs_noH_pocket_topk30.zip](https://drive.google.com/file/d/1QNDU1Dj06FBCDUhtLPgRWEJzumukr7Ko/view?usp=drive_link) and [pepbdb_graphs_noH_ligand.zip](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view?usp=drive_link), and unzip them in the `./data` directory.
 
