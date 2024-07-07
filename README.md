@@ -22,12 +22,20 @@ Protein-peptide interactions (PpIs) play a critical role in major cellular proce
 
 ## Conda Environment Reproduce
 
-### create environment using yaml file provided in `./env` directory
+### Create environment using yaml file provided in `./env` directory
 
 The following commands can be used to reproduce the conda environment:
-
 ```bash
 conda env create --prefix=/opt/conda_env/DeepPpIScore -f ./env/DeepPpIScore.yaml
+```
+
+### Create environment using conda-packed `.tar.gz` file
+Downloading conda-packed `.tar.gz` file from google dirve [DeepPpIScore.tar.gz](https://drive.google.com/file/d/1YEX5lwE3zd0gag3s_awReNNDPuNKPowt/view?usp=sharing), and then using the following commands to reproduce the conda environment:
+
+```bash
+tar -xzvf DeepPpIScore.tar.gz -C /opt/conda_env/DeepPpIScore
+conda activate /opt/conda_env/dgl430_py37_gpu
+conda-unpack
 ```
 
 ## Usage
@@ -39,10 +47,17 @@ git clone https://github.com/zjujdj/DeepPpIScore.git
 ```
 
 ### Step 2: Construction of Conda Environment
-
+#### Method1
 ```bash
 conda env create --prefix=/opt/conda_env/DeepPpIScore -f ./env/DeepPpIScore.yaml
 conda activate /opt/conda_env/DeepPpIScore
+```
+
+#### Method2
+```bash
+tar -xzvf DeepPpIScore.tar.gz -C /opt/conda_env/DeepPpIScore
+conda activate /opt/conda_env/dgl430_py37_gpu
+conda-unpack
 ```
 
 ### Step 3: Downloading ESM2 CheckPoint
