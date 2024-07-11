@@ -13,7 +13,7 @@ sys.path.append('../')
 from utils.fns import load_graph, save_graph
 
 
-# added by dejunjiang; 20230920
+# added by jdj; 20230920
 from dataset.protein_feature import get_pocket_feature_mda
 from dataset.ligand_feature import  get_pep_node_feat, get_pep_corrd_feat
 import joblib

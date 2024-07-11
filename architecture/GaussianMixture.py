@@ -39,7 +39,7 @@ class GM_SV(nn.Module):
         h_t_x = h_t_x.repeat(1, N_l, 1, 1) # [B, N_l, N_t, C_out]
 
 
-        C = h_l_x + h_t_x  # added by dejunjiang 20230911; 两个节点的表征相加
+        C = h_l_x + h_t_x  # added by jdj 20230911; 两个节点的表征相加
         self.C_mask = C_mask = l_mask.view(B, N_l, 1) & t_mask.view(B, 1, N_t)
         self.C = C = C[C_mask]
         C = self.MLP(C)
