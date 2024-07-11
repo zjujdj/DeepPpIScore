@@ -24,11 +24,17 @@ Protein-peptide interactions (PpIs) play a critical role in major cellular proce
 ## Conda Environment Reproduce
 
 ### Create environment using yaml file provided in `./env` directory
+Mamba Installation
+```bash
+curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-$(uname)-$(uname -m).sh"
+bash Miniforge3-$(uname)-$(uname -m).sh
+```
 
-The following code can be used to reproduce the conda environment:
+Then, the following code can be used to reproduce the conda environment:
 ```bash
 mkdir -p ~/conda_env/DeepPpIScore
-conda env create --prefix=~/conda_env/DeepPpIScore --file ./env/DeepPpIScore.yaml
+mamba env create --prefix=~/conda_env/DeepPpIScore --file ./env/DeepPpIScore.yaml
+mamba activate ~/conda_env/DeepPpIScore
 ```
 
 ### Create environment using conda-packed `.tar.gz` file
@@ -37,13 +43,13 @@ Downloading conda-packed `.tar.gz` file from google dirve [DeepPpIScore.tar.gz](
 ```bash
 mkdir -p ~/conda_env/DeepPpIScore
 tar -xzvf DeepPpIScore.tar.gz -C ~/conda_env/DeepPpIScore
-conda activate ~/conda_env/DeepPpIScore
+mamba activate ~/conda_env/DeepPpIScore
 conda-unpack
 ```
 
 ## Usage
 
-The code was tested sucessfully on the basci environment equipped with `Nvidia Tesla V100 GPU Card`, `Python=3.9.13`, `CUDA=11.2` and `Conda=22.9.0`
+The code was tested sucessfully on the basci environment equipped with `Nvidia Tesla V100 GPU Card`, `Python=3.9.13`, `CUDA=11.2`, `conda=24.3.0` and `mamba=1.5.8`
 
 ### Step 1: Clone the Repository
 
@@ -51,23 +57,7 @@ The code was tested sucessfully on the basci environment equipped with `Nvidia T
 git clone https://github.com/zjujdj/DeepPpIScore.git
 ```
 
-### Step 2: Construction of Conda Environment
-#### Method1
-```bash
-mkdir -p ~/conda_env/DeepPpIScore
-conda env create --prefix = ~/conda_env/DeepPpIScore --file ./env/DeepPpIScore.yaml
-conda activate ~/conda_env/DeepPpIScore
-```
-
-#### Method2
-```bash
-mkdir -p ~/conda_env/DeepPpIScore
-tar -xzvf DeepPpIScore.tar.gz -C ~/conda_env/DeepPpIScore
-conda activate ~/conda_env/DeepPpIScore
-conda-unpack
-```
-
-### Step 3: Downloading ESM2 CheckPoint
+### Step 2: Downloading ESM2 CheckPoint
 
 Downloading [esm2_t33_650M_UR50D.pt](https://dl.fbaipublicfiles.com/fair-esm/models/esm2_t33_650M_UR50D.pt),   [esm2_t33_650M_UR50D-contact-regression.pt](https://dl.fbaipublicfiles.com/fair-esm/regression/esm2_t33_650M_UR50D-contact-regression.pt) and put them in the `./data` directory
 
@@ -75,7 +65,7 @@ Downloading [esm2_t33_650M_UR50D.pt](https://dl.fbaipublicfiles.com/fair-esm/mod
 mv esm2_t33_650M_UR50D.pt esm2_t33_650M_UR50D-contact-regression.pt ./data
 ```
 
-### Step 4: Inference Example with the Weights Trained in This Study
+### Step 3: Inference Example with the Weights Trained in This Study
 
 ```bash
 cd scripts
@@ -91,7 +81,7 @@ python3 -u model_inference_example.py > model_inference_example.log
 ```
 The prediction result was listed in directory of `./model_inference/DeepPpIScore/8.0/DeepPpIScore_8.0.csv` . For this csv file, four kinds of score were provided, namely 'cb-cb score', 'cb-cb norm score', 'min-min score' and 'min-min norm score', respectively where the norm score = score / sqrt(contacts). All the analysis in the paper was based on 'min-min score'.
 
-### Step 5: Model Re-training with the Training Structures Used in This Study
+### Step 4: Model Re-training with the Training Structures Used in This Study
 
 Downloading the prepared training structures from google dirve [pepbdb_graphs_noH_pocket_topk30.zip](https://drive.google.com/file/d/1QNDU1Dj06FBCDUhtLPgRWEJzumukr7Ko/view?usp=drive_link) and [pepbdb_graphs_noH_ligand.zip](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view?usp=drive_link), and unzip them in the `./data` directory.
 
