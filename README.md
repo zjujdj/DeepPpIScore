@@ -2,6 +2,29 @@
 
 This is the official implementation for the paper titled 'Harnessing Deep Statistical Potential for Biophysical Scoring of Protein-peptide Interactions'.
 
+## Table of Contents
+- [DeepPpIScore](#deepppiscore)
+  - [Table of Contents](#table-of-contents)
+  - [Introduction](#introduction)
+  - [Evaluation of Peptide Binding Mode Prediction Based on the Well-established Unbound Set](#evaluation-of-peptide-binding-mode-prediction-based-on-the-well-established-unbound-set)
+  - [Evaluation of Peptide Binding Mode Prediction Based on the Latest Bound Set](#evaluation-of-peptide-binding-mode-prediction-based-on-the-latest-bound-set)
+  - [Comparison with AF-M 2.3 On the Peptide Binding Mode Prediction](#comparison-with-af-m-23-on-the-peptide-binding-mode-prediction)
+  - [Conda Environment Reproduce](#conda-environment-reproduce)
+    - [Create environment using yaml file provided in `./env` directory](#create-environment-using-yaml-file-provided-in-env-directory)
+    - [Create environment using conda-packed `.tar.gz` file](#create-environment-using-conda-packed-targz-file)
+  - [Training Structures and Evaluation Datasets](#training-structures-and-evaluation-datasets)
+    - [Training Structures](#training-structures)
+    - [PepSet](#pepset)
+    - [BoundPep](#boundpep)
+    - [PepBinding](#pepbinding)
+    - [pMHCSet](#pmhcset)
+  - [Usage](#usage)
+    - [Step 1: Clone the Repository](#step-1-clone-the-repository)
+    - [Step 2: Downloading ESM2 CheckPoint](#step-2-downloading-esm2-checkpoint)
+    - [Step 3: Inference Example with the Weights Trained in This Study](#step-3-inference-example-with-the-weights-trained-in-this-study)
+    - [Step 4: Model Re-training with the Training Structures Used in This Study](#step-4-model-re-training-with-the-training-structures-used-in-this-study)
+
+
 
 ## Introduction
 
@@ -48,11 +71,16 @@ conda-unpack
 ```
 
 ## Training Structures and Evaluation Datasets
-1. __Training Structures__: the prepared training structures are available at google dirve [pepbdb_graphs_noH_pocket_topk30.zip](https://drive.google.com/file/d/1QNDU1Dj06FBCDUhtLPgRWEJzumukr7Ko/view?usp=drive_link) and [pepbdb_graphs_noH_ligand.zip](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view?usp=drive_link)
-2. __PepSet__: pepset is available at [PepSet Benchmark](http://cadd.zju.edu.cn/pepset/)
-3. __BoundPep__: the prepared BoundPep is available at [BoundPep](https://drive.google.com/file/d/1QNDU1Dj06FBCDUhtLPgRWEJzumukr7Ko/view?usp=drive_link)
-4. __PepBinding__: PepBinding is available at [PepBinding](https://github.com/zjujdj/DeepPpIScore/blob/master/data/pdbbind2020_Ppi_binding_data_445.csv)
-5. __pMHCSet__: the prepared pMHCSet is available at [pMHCSet](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view?usp=drive_link)
+### Training Structures
+The prepared training structures are available at google dirve [pepbdb_graphs_noH_pocket_topk30.zip](https://drive.google.com/file/d/1QNDU1Dj06FBCDUhtLPgRWEJzumukr7Ko/view?usp=drive_link) and [pepbdb_graphs_noH_ligand.zip](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view?usp=drive_link)
+### PepSet
+Pepset is available at [PepSet Benchmark](http://cadd.zju.edu.cn/pepset/)
+### BoundPep
+The prepared BoundPep is available at [BoundPep](https://drive.google.com/file/d/1QNDU1Dj06FBCDUhtLPgRWEJzumukr7Ko/view?usp=drive_link)
+### PepBinding
+PepBinding is available at [PepBinding](https://github.com/zjujdj/DeepPpIScore/blob/master/data/pdbbind2020_Ppi_binding_data_445.csv)
+### pMHCSet
+The prepared pMHCSet is available at [pMHCSet](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view?usp=drive_link)
 
 
 ## Usage
