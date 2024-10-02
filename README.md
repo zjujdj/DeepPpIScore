@@ -47,6 +47,14 @@ mamba activate ~/conda_env/DeepPpIScore
 conda-unpack
 ```
 
+## Training Structures and Evaluation Datasets
+1. __Training Structures__: the prepared training structures are available at google dirve [pepbdb_graphs_noH_pocket_topk30.zip](https://drive.google.com/file/d/1QNDU1Dj06FBCDUhtLPgRWEJzumukr7Ko/view?usp=drive_link) and [pepbdb_graphs_noH_ligand.zip](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view?usp=drive_link)
+2. __PepSet__: pepset is available at [PepSet Benchmark](http://cadd.zju.edu.cn/pepset/)
+3. __BoundPep__: the prepared BoundPep is available at [BoundPep](https://drive.google.com/file/d/1QNDU1Dj06FBCDUhtLPgRWEJzumukr7Ko/view?usp=drive_link)
+4. __PepBinding__: PepBinding is available at [PepBinding](https://github.com/zjujdj/DeepPpIScore/blob/master/data/pdbbind2020_Ppi_binding_data_445.csv)
+5. __pMHCSet__: the prepared pMHCSet is available at [pMHCSet](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view?usp=drive_link)
+
+
 ## Usage
 
 The code was tested sucessfully on the basci environment equipped with `Nvidia Tesla V100 GPU Card`, `Python=3.9.13`, `CUDA=11.2`, `conda=24.3.0` and `mamba=1.5.8`
