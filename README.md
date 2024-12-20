@@ -72,15 +72,15 @@ conda-unpack
 
 ## Training Structures and Evaluation Datasets
 ### Training Structures
-The prepared training structures are available at google dirve [pepbdb_graphs_noH_pocket_topk30.zip](https://drive.google.com/file/d/1QNDU1Dj06FBCDUhtLPgRWEJzumukr7Ko/view?usp=drive_link) and [pepbdb_graphs_noH_ligand.zip](https://drive.google.com/file/d/1Y1zLU4ONfHp80zCYdVXOrhK3_4M0yP-m/view?usp=drive_link)
+The training structures are available at [zenodo](https://zenodo.org/uploads/13881778).
 ### PepSet
-Pepset is available at [PepSet Benchmark](http://cadd.zju.edu.cn/pepset/)
+Pepset is available at [PepSet Benchmark](http://cadd.zju.edu.cn/pepset/).
 ### BoundPep
-The prepared BoundPep is available at [zenodo](https://zenodo.org/records/13881778?preview=1)
+The BoundPep structures are available at [zenodo](https://zenodo.org/uploads/13881778).
 ### PepBinding
-PepBinding is available at [PepBinding](https://github.com/zjujdj/DeepPpIScore/blob/master/data/pdbbind2020_Ppi_binding_data_445.csv)
+PepBinding is available at [PepBinding](https://github.com/zjujdj/DeepPpIScore/blob/master/data/pdbbind2020_Ppi_binding_data_445.csv).
 ### pMHCSet
-The prepared pMHCSet is available at [zenodo](https://zenodo.org/records/13881778?preview=1)
+The pMHCSet structures are available at [zenodo](https://zenodo.org/uploads/13881778).
 
 
 ## Usage
